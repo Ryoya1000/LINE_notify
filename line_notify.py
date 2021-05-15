@@ -5,7 +5,7 @@ import time
 
 def job():
    url = "https://notify-api.line.me/api/notify"
-   access_token = 'G9IoYyIbdV9iAJX1upOn1BkgTaCg9ZOr5abNfXTWqOK'
+   access_token = os.environ["LINE_NOTIFY_ACCESS_TOKEN"]
    headers = {'Authorization': 'Bearer ' + access_token}
    message = "テストだよ！！！！！！！！！！"
    params = {'message': message, 'stickerId': 1, 'stickerPackageId': 1}
