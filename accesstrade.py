@@ -7,7 +7,7 @@ import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
-# LINE notify
+# LINE NOTIFY
 def job(msg):
    url = "https://notify-api.line.me/api/notify"
    access_token = os.environ["LINE_NOTIFY_BLOG"]
