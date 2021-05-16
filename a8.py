@@ -38,15 +38,15 @@ def get_info():
     browser = webdriver.Chrome(options=op)
     # browser = webdriver.Chrome()
 
-    browser.get('https://www.accesstrade.ne.jp/#_ga=2.183676006.1981910440.1620909719-113966242.1593177757')
+    browser.get('https://www.a8.net/')
 
     # ユーザーID入力
-    elem_username = browser.find_element_by_name('userId')
-    username = os.environ["USERNAME_BLOG"]
+    elem_username = browser.find_element_by_id('asLoginId')
+    username = os.environ["USERNAME_BLOG_2"]
     elem_username.send_keys(username)
 
     # パスワード入力
-    elem_password = browser.find_element_by_name('userPass')
+    elem_password = browser.find_element_by_name('passwd')
     password = os.environ["PASSWORD_BLOG"]
     elem_password.send_keys(password)
 
@@ -64,14 +64,14 @@ def get_info():
         if td.text != "":
             val.append(td.text)
 
-    hassei = val[5]
-    kakutei = val[9]
+    hassei = val[9]
+    kakutei = val[11]
 
     dt_now = datetime.datetime.now()
     year = dt_now.year
     month = dt_now.month
 
-    msg = "\n{}年{}月\nアクトレ収益報告\n発生金額={}\n確定金額={}".format(year, month, hassei, kakutei)
+    msg = "\n{}年{}月\nA8収益報告\n発生金額={}\n確定金額={}".format(year, month, hassei, kakutei)
     job(msg)
 
     browser.quit()
